@@ -22,7 +22,7 @@ module.exports = {
   },
 
   htmlPluginConfig: {
-    title: 'My app',
+    title: 'Reactflix',
     template: join(paths.src, 'html', 'template.html')
   },
 
