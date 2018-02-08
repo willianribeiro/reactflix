@@ -4,6 +4,7 @@ import React from 'react'
 import styled, { injectGlobal } from 'styled-components'
 import VideosList from 'components/VideosList'
 import VideoPlayer from 'components/VideoPlayer'
+import RegisterVideo from 'components/RegisterVideo'
 
 import 'normalize.css'
 import 'milligram'
@@ -15,6 +16,7 @@ const App = () => (
     </Header>
 
     <Main>
+      <RegisterVideo />
       <VideoPlayer />
       <VideosList />
     </Main>
