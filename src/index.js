@@ -6,36 +6,8 @@ import { AppContainer } from 'react-hot-loader'
 import { Provider } from 'react-redux'
 import App from './app'
 import configureStore from './redux-flow/configure-store'
-import db from './config/firebase'
 
 const store = configureStore()
-
-const videos = db.ref('videos')
-
-// Adiciona um novo vídeo
-const newVideo = videos.push()
-newVideo.set({
-  id: 100,
-  title: 'Título do vídeo x'
-})
-
-// Lista os vídeos uma vez
-// videos.once('value').then(snapshot => {
-//   console.log('snapshot: ', snapshot.val())
-// })
-
-// Lista os vídeos e atualiza toda vez que tiver modificação
-videos.on(
-  'value',
-
-  snapshot => {
-    console.log('snapshot: ', snapshot.val())
-  },
-
-  error => {
-    console.log('error: ', error)
-  }
-)
 
 const renderApp = (NextApp) => {
   render(
