@@ -6,17 +6,17 @@ import { AppContainer } from 'react-hot-loader'
 import { Provider } from 'react-redux'
 import App from './app'
 import configureStore from './redux-flow/configure-store'
+import db from './config/firebase'
 
 const store = configureStore()
 
-const db = firebase.database()
 const videos = db.ref('videos')
 
 // Adiciona um novo vídeo
 const newVideo = videos.push()
 newVideo.set({
-  id: 4,
-  title: 'Título do vídeo 4'
+  id: 100,
+  title: 'Título do vídeo x'
 })
 
 // Lista os vídeos uma vez
