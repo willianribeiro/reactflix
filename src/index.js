@@ -28,4 +28,3 @@ if (module.hot) {
     renderApp(NextApp)
   })
 }
-
