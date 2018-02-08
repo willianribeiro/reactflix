@@ -40,7 +40,7 @@ const Video = styled.div`
   cursor: pointer;
 
   &:hover ${VideoPlay} {
-    transform: scale(1.5);
+    transform: scale(1.3);
   }
 `
 

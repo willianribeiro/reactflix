@@ -37,6 +37,7 @@ const footerHeight = '30px'
 
 const Header = styled.header`
   height: ${headerHeight};
+  padding: 0 16px;
   background-color: #333
 `
 
