@@ -5,11 +5,11 @@ const VideoPlayer = () => {
   return (
     <div>
       <Iframe
-        width="100%"
-        height="480"
-        src="https://www.youtube.com/embed/TWdSi0Xw4u0?rel=0&amp;showinfo=0"
-        frameborder="0"
-        allow="autoplay; encrypted-media"
+        width='100%'
+        height='480'
+        src='https://www.youtube.com/embed/TWdSi0Xw4u0?rel=0&amp;showinfo=0'
+        frameborder='0'
+        allow='autoplay; encrypted-media'
         allowfullscreen
       />
 

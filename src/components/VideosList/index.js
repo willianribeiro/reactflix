@@ -5,15 +5,15 @@ import Play from './Play'
 const VideosList = () => {
   return (
     <Container>
-        {Array.from({ length: 10 }).map((item, index) => (
-          <Video key={index}>
-            <VideoThumb>
-              <VideoPlay />
-            </VideoThumb>
-            <VideoTitle>Título do Vídeo</VideoTitle>
-          </Video>
-        ))}
-      </Container>
+      {Array.from({ length: 10 }).map((item, index) => (
+        <Video key={index}>
+          <VideoThumb>
+            <VideoPlay />
+          </VideoThumb>
+          <VideoTitle>Título do Vídeo</VideoTitle>
+        </Video>
+      ))}
+    </Container>
   )
 }
 
@@ -25,7 +25,7 @@ const VideoThumb = styled.div`
   border: 1px solid #999;
 `
 
-const VideoPlay = styled(Play) `
+const VideoPlay = styled(Play)`
   width: 50px;
   height: 50px;
   fill: #999;
