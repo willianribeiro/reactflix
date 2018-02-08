@@ -12,10 +12,19 @@ const store = configureStore()
 const db = firebase.database()
 const videos = db.ref('videos')
 
+// Adiciona um novo vídeo
+const newVideo = videos.push()
+newVideo.set({
+  id: 4,
+  title: 'Título do vídeo 4'
+})
+
+// Lista os vídeos uma vez
 // videos.once('value').then(snapshot => {
 //   console.log('snapshot: ', snapshot.val())
 // })
 
+// Lista os vídeos e atualiza toda vez que tiver modificação
 videos.on(
   'value',
 
