@@ -5,16 +5,16 @@ import styled, { injectGlobal } from 'styled-components'
 import VideosList from 'components/VideosList'
 import VideoPlayer from 'components/VideoPlayer'
 import RegisterVideo from 'components/RegisterVideo'
+import Header from 'components/Header'
+import Footer from 'components/Footer'
+import { headerHeight, footerHeight } from 'utils/constants'
 
 import 'normalize.css'
 import 'milligram'
 
 const App = () => (
   <Container>
-    <Header>
-      <HeaderTitle>Reactflix</HeaderTitle>
-      <RegisterButton>Cadastrar vídeo</RegisterButton>
-    </Header>
+    <Header />
 
     <Main>
       <RegisterVideo />
@@ -22,9 +22,7 @@ const App = () => (
       <VideosList />
     </Main>
 
-    <Footer>
-      &copy; 2018
-    </Footer>
+    <Footer />
   </Container>
 )
 
@@ -34,31 +32,6 @@ injectGlobal`
   div[data-js=app] {
     height: 100%;
   }
-`
-const headerHeight = '60px'
-const footerHeight = '30px'
-
-const Header = styled.header`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: ${headerHeight};
-  padding: 0 8px;
-  color: #f1f1f1;
-  background-color: #333
-`
-
-const HeaderTitle = styled.h1`
-  margin-bottom: 0;
-`
-
-const RegisterButton = styled.button`
-  margin-bottom: 0;
-`
-
-const Footer = styled.footer`
-  height: ${footerHeight};
-  background-color: #333
 `
 
 const Main = styled.main`
