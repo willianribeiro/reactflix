@@ -12,7 +12,8 @@ import 'milligram'
 const App = () => (
   <Container>
     <Header>
-      <h1>Reactflix</h1>
+      <HeaderTitle>Reactflix</HeaderTitle>
+      <RegisterButton>Cadastrar vídeo</RegisterButton>
     </Header>
 
     <Main>
@@ -38,9 +39,21 @@ const headerHeight = '60px'
 const footerHeight = '30px'
 
 const Header = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: ${headerHeight};
-  padding: 0 16px;
+  padding: 0 8px;
+  color: #f1f1f1;
   background-color: #333
+`
+
+const HeaderTitle = styled.h1`
+  margin-bottom: 0;
+`
+
+const RegisterButton = styled.button`
+  margin-bottom: 0;
 `
 
 const Footer = styled.footer`
