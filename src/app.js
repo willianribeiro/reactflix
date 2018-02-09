@@ -2,6 +2,7 @@
 
 import React from 'react'
 import styled, { injectGlobal } from 'styled-components'
+import { connect } from 'react-redux'
 import VideosList from 'components/VideosList'
 import VideoPlayer from 'components/VideoPlayer'
 import RegisterVideo from 'components/RegisterVideo'
@@ -12,12 +13,12 @@ import { headerHeight, footerHeight } from 'utils/constants'
 import 'normalize.css'
 import 'milligram'
 
-const App = () => (
+const App = ({ isRegisterVideoFormOpened }) => (
   <Container>
     <Header />
 
     <Main>
-      <RegisterVideo />
+      {isRegisterVideoFormOpened && <RegisterVideo />}
       <VideoPlayer />
       <VideosList />
     </Main>
@@ -42,4 +43,8 @@ const Container = styled.div`
   height: 100%
 `
 
-export default App
+const mapStateToProps = state => ({
+  isRegisterVideoFormOpened: state.ui.isRegisterVideoFormOpened
+})
+
+export default connect(mapStateToProps)(App)
