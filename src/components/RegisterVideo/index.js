@@ -22,10 +22,14 @@ const Form = styled.form`
 `
 
 const mapDispatchToProps = dispatch => ({
-  onSubmit: e => {
+  onSubmit: async e => {
     e.preventDefault()
+    e.persist()
+
     const { id, title } = e.target
-    dispatch(registerVideo({ id: id.value, title: title.value }))
+    await dispatch(registerVideo({ id: id.value, title: title.value }))
+    e.target.reset()
+    e.target.elements[0].focus()
   }
 })
 
