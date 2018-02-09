@@ -1,18 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
-import { addVideo } from 'reducers/videos/action-creators'
+import { registerVideo } from 'reducers/videos/action-creators'
 
 const RegisterVideo = ({ onSubmit }) => {
   return (
     <Form onSubmit={onSubmit}>
-      <label htmlFor="id">Id:</label>
-      <input type="text" id="id" name="id" />
+      <label htmlFor='id'>Id:</label>
+      <input type='text' id='id' name='id' />
 
-      <label htmlFor="title">Título:</label>
-      <input type="text" id="title" name="title" />
+      <label htmlFor='title'>Título:</label>
+      <input type='text' id='title' name='title' />
 
-      <button type="submit">Cadastrar</button>
+      <button type='submit'>Cadastrar</button>
     </Form>
   )
 }
@@ -25,7 +25,7 @@ const mapDispatchToProps = dispatch => ({
   onSubmit: e => {
     e.preventDefault()
     const { id, title } = e.target
-    dispatch(addVideo({ id: id.value, title: title.value }))
+    dispatch(registerVideo({ id: id.value, title: title.value }))
   }
 })
 
