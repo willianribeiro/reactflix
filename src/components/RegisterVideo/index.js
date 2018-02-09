@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
+import { addVideo } from 'reducers/videos/action-creators'
 
 const RegisterVideo = ({ onSubmit }) => {
   return (
@@ -23,14 +24,8 @@ const Form = styled.form`
 const mapDispatchToProps = dispatch => ({
   onSubmit: e => {
     e.preventDefault()
-
-    dispatch({
-      type: 'videos:ADD_VIDEO',
-      payload: {
-        id: 'TWdSi0Xw4u0',
-        title: 'Illumination - Peaceful Gregorian Chants - Dan Gibsons Solitude [Full Album]'
-      }
-    })
+    const { id, title } = e.target
+    dispatch(addVideo({ id: id.value, title: title.value }))
   }
 })
 
