@@ -1,6 +1,6 @@
 'use strict'
 
-import React from 'react'
+import React, { PureComponent } from 'react'
 import styled, { injectGlobal } from 'styled-components'
 import { connect } from 'react-redux'
 import VideosList from 'components/VideosList'
@@ -9,23 +9,34 @@ import RegisterVideo from 'components/RegisterVideo'
 import Header from 'components/Header'
 import Footer from 'components/Footer'
 import { headerHeight, footerHeight } from 'utils/constants'
+import { listVideos } from 'reducers/videos/action-creators'
 
 import 'normalize.css'
 import 'milligram'
 
-const App = ({ isRegisterVideoFormOpened }) => (
-  <Container>
-    <Header />
+class App extends PureComponent {
+  componentDidMount () {
+    this.props.listVideos()
+  }
 
-    <Main>
-      {isRegisterVideoFormOpened && <RegisterVideo />}
-      <VideoPlayer />
-      <VideosList />
-    </Main>
+  render () {
+    const { isRegisterVideoFormOpened } = this.props
 
-    <Footer />
-  </Container>
-)
+    return (
+      <Container>
+        <Header />
+
+        <Main>
+          {isRegisterVideoFormOpened && <RegisterVideo />}
+          <VideoPlayer />
+          <VideosList />
+        </Main>
+
+        <Footer />
+      </Container>
+    )
+  }
+}
 
 injectGlobal`
   html,
@@ -47,4 +58,8 @@ const mapStateToProps = state => ({
   isRegisterVideoFormOpened: state.ui.isRegisterVideoFormOpened
 })
 
-export default connect(mapStateToProps)(App)
+const mapDispatchToProps = dispatch => ({
+  listVideos: () => dispatch(listVideos())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

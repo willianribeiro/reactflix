@@ -1,16 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
+import { connect } from 'react-redux'
 import Play from './Play'
 
-const VideosList = () => {
+const VideosList = ({ videos }) => {
   return (
     <Container>
-      {Array.from({ length: 10 }).map((item, index) => (
-        <Video key={index}>
+      {Object.keys(videos).map(id => (
+        <Video key={id}>
           <VideoThumb>
             <VideoPlay />
           </VideoThumb>
-          <VideoTitle>Título do Vídeo</VideoTitle>
+          <VideoTitle>{videos[id].title}</VideoTitle>
         </Video>
       ))}
     </Container>
@@ -54,4 +55,8 @@ const Container = styled.div`
   }
 `
 
-export default VideosList
+const mapStateToProps = state => ({
+  videos: state.videos
+})
+
+export default connect(mapStateToProps)(VideosList)
