@@ -9,9 +9,15 @@ export const registerVideo = ({ id, title }) => async dispatch => {
 
 export const listVideos = () => dispatch => {
   db.ref('videos').on('value', snapshot => {
-    snapshot.forEach(child => {
-      dispatch(addVideo(child.val()))
-    })
+    const videos = snapshot.val()
+    const videosOrderedByTitle = Object.keys(videos)
+      .sort((a, b) => videos[a].title < videos[b].title ? -1 : 1)
+      .map(id => ({
+        id,
+        title: videos[id].title
+      }))
+
+    videosOrderedByTitle.forEach(video => dispatch(addVideo(video)))
   })
 }
 
