@@ -28,6 +28,7 @@ const HeaderTitle = styled.h1`
 const RegisterButton = styled.button`
   margin-bottom: 0;
 `
+
 const mapDispatchToProps = dispatch => ({
   onOpenRegisterVideo: () => dispatch(openRegisterVideo())
 })

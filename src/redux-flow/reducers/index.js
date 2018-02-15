@@ -1,10 +1,12 @@
 'use strict'
 
 import { combineReducers } from 'redux'
-import videos from './videos'
 import ui from './ui'
+import videoPlayer from './videoPlayer'
+import videos from './videos'
 
 export default combineReducers({
-  videos,
-  ui
+  ui,
+  videoPlayer,
+  videos
 })

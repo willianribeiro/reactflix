@@ -20,7 +20,7 @@ class App extends PureComponent {
   }
 
   render () {
-    const { isRegisterVideoFormOpened } = this.props
+    const { isRegisterVideoFormOpened, videoPlayer } = this.props
 
     return (
       <Container>
@@ -28,7 +28,12 @@ class App extends PureComponent {
 
         <Main>
           {isRegisterVideoFormOpened && <RegisterVideo />}
-          <VideoPlayer />
+          {videoPlayer.id &&
+            <VideoPlayer
+              id={videoPlayer.id}
+              title={videoPlayer.title}
+            />
+          }
           <VideosList />
         </Main>
 
@@ -55,7 +60,8 @@ const Container = styled.div`
 `
 
 const mapStateToProps = state => ({
-  isRegisterVideoFormOpened: state.ui.isRegisterVideoFormOpened
+  isRegisterVideoFormOpened: state.ui.isRegisterVideoFormOpened,
+  videoPlayer: state.videoPlayer
 })
 
 const mapDispatchToProps = dispatch => ({
